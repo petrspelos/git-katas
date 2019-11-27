@@ -16,7 +16,7 @@ cls
 @echo =================================================
 @echo The situation:
 @echo One of the older commits on branch "feature-1" called
-@echo "Wrong Commit" is supposed to be in the "feature-2" branch
+@echo "Update LICENSE" is supposed to be in the "feature-2" branch
 @echo Move the "Wrong Commit" into the "feature-2" branch
 @echo =================================================
 @echo If you make a mistake, delete the whole folder

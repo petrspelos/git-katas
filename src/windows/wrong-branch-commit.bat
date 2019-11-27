@@ -7,7 +7,7 @@ CALL :set_git_user Shirline shirline@example.com
 CALL :make_initial_commits
 CALL :set_git_user Stacy stacy@example.com
 CALL :setup_branches
-CALL :make_wrong_commit
+CALL :setup_situation
 cls
 @echo on
 @echo =================================================
@@ -54,8 +54,19 @@ git checkout -b wrong-branch
 git checkout master
 EXIT /B 0
 
-:make_wrong_commit
+:setup_situation
+git checkout correct-branch
+
+ECHO Different sample license file > LICENSE
+git add .
+git commit -m "Edit LICENSE"
+
 git checkout wrong-branch
+
+ECHO Some code of conduct > CODE_OF_CONDUCT
+git add .
+git commit -m "Add Code of Conduct document"
+
 echo function sayHello() {>index.js
 echo     console.log("Hello");>>index.js
 echo }>>index.js

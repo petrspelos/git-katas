@@ -44,7 +44,7 @@ git commit -m "Initial Commit"
 EXIT /B 0
 
 :make_bob_commit_feature
-CALL set_git_user Bob bob@example.com
+CALL :set_git_user Bob bob@example.com
 git checkout -b bob-feature-1
 echo function SayHello()>index.js
 echo {>>index.js
@@ -56,7 +56,7 @@ git checkout master
 EXIT /B 0
 
 :make_alice_commit_feature
-CALL set_git_user Alice alice@example.com
+CALL :set_git_user Alice alice@example.com
 git checkout -b alice-feature-1
 echo function sayHello() {>index.js
 echo     console.log("Hello");>>index.js
