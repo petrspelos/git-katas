@@ -1,6 +1,7 @@
 @echo off
 
 SETLOCAL
+CALL :checkExistingFolderAndDelete SquashCommitsRepo
 CALL :create_git_repository SquashCommitsRepo
 CD SquashCommitsRepo
 CALL :set_git_user Nicol nicol@example.com
@@ -25,6 +26,9 @@ cls
 @echo =================================================
 @pause
 @EXIT /B %ERRORLEVEL%
+
+:checkExistingFolderAndDelete
+if exist %~1 rmdir /s /q %~1
 
 :create_git_repository
 mkdir %~1

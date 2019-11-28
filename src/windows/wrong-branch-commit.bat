@@ -1,6 +1,7 @@
 @echo off
 
 SETLOCAL
+CALL :checkExistingFolderAndDelete WrongBranchRepo
 CALL :create_git_repository WrongBranchRepo
 CD WrongBranchRepo
 CALL :set_git_user Shirline shirline@example.com
@@ -24,6 +25,9 @@ cls
 @echo =================================================
 @pause
 @EXIT /B %ERRORLEVEL%
+
+:checkExistingFolderAndDelete
+if exist %~1 rmdir /s /q %~1
 
 :create_git_repository
 mkdir %~1

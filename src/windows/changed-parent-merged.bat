@@ -1,6 +1,7 @@
 @echo off
 
 SETLOCAL
+CALL :checkExistingFolderAndDelete ChangedParentMergedRepo
 CALL :create_git_repository ChangedParentMergedRepo
 CD ChangedParentMergedRepo
 CALL :set_git_user Lynda lynda@example.com
@@ -25,6 +26,9 @@ cls
 @echo =================================================
 @pause
 @EXIT /B %ERRORLEVEL%
+
+:checkExistingFolderAndDelete
+if exist %~1 rmdir /s /q %~1
 
 :create_git_repository
 mkdir %~1
